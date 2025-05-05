@@ -7,14 +7,15 @@ import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { fetchUserAttributes } from "aws-amplify/auth";
 import { StorageBrowser } from "@/components/StorageBrowser";
+import type { UserAttributeKey } from "aws-amplify/auth";
 import "./app.css";
 
 Amplify.configure(outputs);
 
-export default function HomePage() {
-  const [userAttrs, setUserAttrs] = useState<Record<string, string> | null>(
-    null
-  );
+export default function App() {
+  const [userAttrs, setUserAttrs] = useState<Partial<
+    Record<UserAttributeKey, string>
+  > | null>(null);
 
   useEffect(() => {
     fetchUserAttributes()
