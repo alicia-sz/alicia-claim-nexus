@@ -13,4 +13,5 @@ Amplify.configure(config);
 // Create the StorageBrowser component with Amplify authentication
 export const { StorageBrowser } = createStorageBrowser({
   config: createAmplifyAuthAdapter(),
+  level: "private",
 });
